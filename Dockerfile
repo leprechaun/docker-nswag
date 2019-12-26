@@ -1,6 +1,6 @@
-FROM mcr.microsoft.com/dotnet/core/sdk:2.2
+FROM mcr.microsoft.com/dotnet/core/sdk:2.1
 
-ENV NSWAG_BUILD="1082"
+ENV NSWAG_BUILD="1057"
 
 RUN curl -O -L https://github.com/RicoSuter/NSwag/releases/download/NSwag-Build-${NSWAG_BUILD}/NSwag.zip \
     && apt-get update \
@@ -10,5 +10,5 @@ RUN curl -O -L https://github.com/RicoSuter/NSwag/releases/download/NSwag-Build-
     && rm -rf /var/lib/apt/lists/* \
     && rm -f NSwag.zip
 
-ENTRYPOINT dotnet NSwag/NetCore22/dotnet-nswag.dll
+ENTRYPOINT dotnet NSwag/NetCore21/dotnet-nswag.dll
 CMD ["version"]
